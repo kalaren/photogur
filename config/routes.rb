@@ -1,7 +1,9 @@
 Photogur::Application.routes.draw do
 
+  post 'pictures' => 'pictures#create'
   get 'pictures' => 'pictures#index'
 
+  get'pictures/new' => 'pictures#new'
   get 'pictures/:id' => 'pictures#show', as: "picture"
   # The priority is based upon order of creation:
   # first created -> highest priority.
