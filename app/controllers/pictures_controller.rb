@@ -6,7 +6,11 @@ class PicturesController < ApplicationController
 	end
 
 	def show
-		@picture = Picture.find(params[:id])
+		if Picture.find_by_id(params[:id])
+			@picture = Picture.find_by_id(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def create
