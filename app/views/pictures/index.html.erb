@@ -1,7 +1,20 @@
-<h1>Pictures</h1>
-<%= link_to "Add a Picture", "/pictures/new" %>
-
-<% @pictures.each do |picture| %>
-	<p><%= picture[:title] %>, <%= picture[:artist] %></p>
-	<img src="<%= picture[:url] %>">
+<div ng-controller="PictureListCtrl">
+	<h1>Pictures</h1>
+<%= link_to "Add a Picture", new_picture_path %>
+<br>
+Filter: <input ng-model="query"> | Sort By: 
+<select ng-model="orderProp">
+	<option value="artist">Artist Alphabetical</option>
+	<option value="-artist">Artist Reverse Alphabetical</option>
+	<option value="title">Title Alphabetical</option>
+	<option value="-title">Title Reverse Alphabetical</option>
+</select>
+<br>
+<p ng-repeat="picture in pictures | filter:query | orderBy:orderProp">
+Title: {{picture.title}}<br>
+Artist: {{picture.artist}}<br>
+<%= link_to "/pictures/{{picture.id}}" do %>  
+<img class="thumb" ng-src="{{picture.url}}">
 <% end %>
+</p>
+</div>
