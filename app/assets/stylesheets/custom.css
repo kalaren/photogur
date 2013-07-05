@@ -1,3 +1,8 @@
 img.thumb {
-	width: 200px;
+	height: 200px;
+}
+
+div.rows {
+	display: inline-block;
+	padding-right: 10px;
 }

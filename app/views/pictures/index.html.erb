@@ -10,8 +10,8 @@ Filter: <input ng-model="query"> | Sort By:
 	<option value="-title">Title Reverse Alphabetical</option>
 </select>
 <br>
-<p ng-repeat="picture in pictures | filter:query | orderBy:orderProp">
-Title: {{picture.title}}<br>
+<div class="rows" ng-repeat="picture in pictures | filter:query | orderBy:orderProp">
+<p>Title: {{picture.title}}<br>
 Artist: {{picture.artist}}<br>
 <%= link_to "/pictures/{{picture.id}}" do %>  
 <img class="thumb" ng-src="{{picture.url}}">
